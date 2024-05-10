@@ -1,0 +1,9 @@
+.contactItem {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.contactIcon {
+  color: rgb(2, 83, 79);
+}
