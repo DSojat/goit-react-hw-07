@@ -1,5 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from '../redux/contactsOps';
+import { selectNameFilter } from '../redux/filterSlice';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -59,6 +60,14 @@ const contactsSlice = createSlice({
   },
 });
 
-// Експортуємо генератори екшенів, редюсер та селектор
+// Експортуємо редюсер та селектори
 export const contactsReducer = contactsSlice.reducer;
+
 export const selectContacts = state => state.contacts;
+export const selectFilteredContacts = createSelector(
+  [selectContacts, selectNameFilter],
+  ({ items }, nameFilter) => {
+    const pattern = nameFilter.toLowerCase().trim();
+    return items.filter(({ name }) => name.toLowerCase().includes(pattern));
+  }
+);
