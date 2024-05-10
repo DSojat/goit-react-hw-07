@@ -20,6 +20,7 @@ const SearchBox = () => {
       <input
         className={css.searchField}
         type="text"
+        value={filter}
         onChange={handleFilter}
         id={searchId}
       />

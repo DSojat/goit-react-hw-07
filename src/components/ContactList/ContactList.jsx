@@ -5,11 +5,11 @@ import { selectContacts } from '../../redux/contactsSlice';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const contacts = useSelector(selectContacts);
+  const { items } = useSelector(selectContacts);
   const filter = useSelector(selectNameFilter);
 
   const pattern = filter.toLowerCase().trim();
-  const filteredContacts = contacts.filter(({ name }) =>
+  const filteredContacts = items.filter(({ name }) =>
     name.toLowerCase().includes(pattern)
   );
 
