@@ -1,0 +1,23 @@
+.labelSpan {
+  color: teal;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  margin-bottom: 24px;
+}
+
+.searchField {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 8px;
+  border: 1px solid rgb(139, 134, 134);
+  border-radius: 4px;
+}
+
+.searchField:focus {
+  box-shadow: 1px 1px #2b2929;
+  outline: 1px solid blue;
+}
